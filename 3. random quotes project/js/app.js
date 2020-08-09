@@ -31,4 +31,18 @@
       author: " Tyne Daly",
     },
   ];
+
+  const btn = document.getElementById("generate-btn");
+  let previousIndex;
+  btn.addEventListener("click", function () {
+    let index = Math.floor(Math.random() * quotes.length);
+
+    while (previousIndex === index) {
+      index = Math.floor(Math.random() * quotes.length);
+    }
+    previousIndex = index;
+
+    document.getElementById("quote").innerText = quotes[index].quote;
+    document.querySelector(".quote-author").innerText = quotes[index].author;
+  });
 })();
